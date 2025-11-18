@@ -6,15 +6,15 @@
 
 ## 🔤 Word-by-word movement
 
-| Keys  | Description                          |
-|-------|--------------------------------------|
-| `w`   | Jump to **next word start**          |
-| `e`   | Jump to **next word end**            |
-| `b`   | Jump to **previous word start**      |
-| `ge`  | Jump to **previous word end**        |
-| `W`   | Jump to **next WORD** (space-based)  |
-| `E`   | Jump to **next WORD end**            |
-| `B`   | Jump to **previous WORD start**      |
+| Keys   | Description                          |
+|--------|--------------------------------------|
+| `w`    | Jump to **next word start**          |
+| `e`    | Jump to **next word end**            |
+| `b`    | Jump to **previous word start**      |
+| `ge`   | Jump to **previous word end**        |
+| `W`    | Jump to **next WORD** (space-based)  |
+| `E`    | Jump to **next WORD end**            |
+| `B`    | Jump to **previous WORD start**      |
 
 ---
 
@@ -71,14 +71,21 @@ Use `%` on a brace/paren to jump between scope boundaries.
 
 ## 🔎 Search-based navigation
 
-| Keys          | Description                                |
-|---------------|--------------------------------------------|
-| `/text` + `↵` | Search **forward** for `text`              |
-| `?text` + `↵` | Search **backward** for `text`             |
-| `n`           | Go to **next** search match                |
-| `N`           | Go to **previous** search match            |
-| `*`           | Search forward for **word under cursor**   |
-| `#`           | Search backward for **word under cursor**  |
+| Keys            | Description                                |
+|-----------------|--------------------------------------------|
+| `/text` + `↵`   | Search **forward** for `text`              |
+| `?text` + `↵`   | Search **backward** for `text`             |
+| `n`             | Go to **next** search match                |
+| `N`             | Go to **previous** search match            |
+| `*`             | Search forward for **word under cursor**   |
+| `#`             | Search backward for **word under cursor**  |
+
+### 🚫 Clear search highlighting
+
+| Command           | Description                     |
+|-------------------|---------------------------------|
+| `:noh` + `↵`      | Clear search highlighting       |
+| `:nohlsearch` + `↵` | Same as above, full command |
 
 ---
 
@@ -92,6 +99,83 @@ Use `%` on a brace/paren to jump between scope boundaries.
 
 ---
 
+## 🪟 Moving between splits (editor groups)
+
+Use `<C-w>` (Ctrl + w) followed by direction:
+
+| Keys            | Description            |
+|-----------------|------------------------|
+| `<C-w> h`       | Focus split **left**   |
+| `<C-w> l`       | Focus split **right**  |
+| `<C-w> j`       | Focus split **down**   |
+| `<C-w> k`       | Focus split **up**     |
+| `<C-w> w`       | Go to **next** split   |
+| `<C-w> p`       | Go to **previous** split |
+
+---
+
+## 🗂 Moving between tabs
+
+| Keys        | Description                          |
+|-------------|--------------------------------------|
+| `gt`        | Go to **next tab**                   |
+| `gT`        | Go to **previous tab**               |
+| `{number}gt`| Go to tab **number `{number}`**      |
+
+VS Code native (also usable):
+
+| Shortcut              | Description       |
+|-----------------------|-------------------|
+| `Ctrl + Tab`          | Next tab          |
+| `Ctrl + Shift + Tab`  | Previous tab      |
+
+---
+
+## 🗑 Deleting word-by-word & text objects
+
+### Basic word deletes
+
+| Keys  | Description                                        |
+|-------|----------------------------------------------------|
+| `dw`  | Delete from cursor → **start of next word**        |
+| `de`  | Delete from cursor → **end of current word**       |
+| `db`  | Delete from cursor → **start of previous word**    |
+| `diw` | Delete **entire word under cursor** (“delete inner word”) |
+
+### BIG WORD (space-separated) deletes
+
+| Keys  | Description                                      |
+|-------|--------------------------------------------------|
+| `dW`  | Delete until **next WORD** (space-delimited)     |
+| `dE`  | Delete until **end of current WORD**             |
+| `dB`  | Delete back to **start of previous WORD**        |
+
+### Line-based deletes
+
+| Keys | Description                          |
+|------|--------------------------------------|
+| `d$` | Delete from cursor → **end of line** |
+| `d0` | Delete from cursor → **start of line** |
+
+### Structural deletes (text objects)
+
+| Keys  | Description                                  |
+|-------|----------------------------------------------|
+| `di)` | Delete **inside parentheses** `( … )`        |
+| `di]` | Delete **inside brackets** `[ … ]`           |
+| `di}` | Delete **inside braces** `{ … }`             |
+| `di"` | Delete **inside double quotes** `" … "`      |
+| `di'` | Delete **inside single quotes** `' … '`      |
+
+### Change (delete + insert) word
+
+| Keys  | Description                                                |
+|-------|------------------------------------------------------------|
+| `ciw` | Change **inner word** (delete word and enter insert mode)  |
+| `ce`  | Change from cursor → **end of word** and enter insert mode |
+
+---
+
 ## 🧾 Minimal “always remember” set
 
 - Words: `w`, `b`, `e`, `W`, `B`
@@ -99,13 +183,16 @@ Use `%` on a brace/paren to jump between scope boundaries.
 - Blocks/scopes: `{`, `}`, `%`
 - File: `gg`, `G`, `<C-d>`, `<C-u>`
 - Search: `/`, `n`, `N`, `*`, `#`
+- Splits: `<C-w> h/j/k/l`
+- Tabs: `gt`, `gT`
+- Delete word: `dw`, `diw`, `ciw`
 
 ---
 
-## 🔧 VSCode `settings.json` (with VSCodeVim)
+## 🔧 VS Code `settings.json` (with VSCodeVim)
 
 Below is the current `settings.json` including Vim-related settings.  
-You can use this directly as your VS Code settings file.
+Use this as your VS Code settings file.
 
 ```jsonc
 {
@@ -155,7 +242,7 @@ You can use this directly as your VS Code settings file.
     "<C-y>": true,
     "<C-w>": true,
     "<C-n>": true,
-    "<C-p": true
+    "<C-p>": true
   },
 
   // ===== Editor tweaks that feel Vimmy =====
