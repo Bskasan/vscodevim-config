@@ -1,0 +1,55 @@
+{
+  "files.autoSave": "afterDelay",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontFamily": "'JetBrains Mono', monospace",
+  "editor.wordWrap": "on",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "git.confirmSync": false,
+  "editor.fontSize": 13,
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.lineHeight": 1.1,
+  "terminal.integrated.letterSpacing": 0.5,
+  "editor.tabSize": 2,
+  "editor.cursorStyle": "block",
+  "workbench.editor.enablePreview": false,
+  "terminal.integrated.fontFamily": "JetBrains Mono",
+  "editor.fontVariations": true,
+  "workbench.fontAliasing": "antialiased",
+  "editor.fontWeight": "100",
+  "editor.letterSpacing": 0.5,
+  "editor.lineHeight": 1.4,
+  "editor.cursorBlinking": "smooth",
+  "editor.fontLigatures": true,
+  "workbench.colorTheme": "Default Dark Modern",
+  "editor.accessibilitySupport": "off",
+
+  // ===== Vim-like behaviour =====
+  "vim.useSystemClipboard": true, // yy / p use system clipboard
+  "vim.hlsearch": true, // highlight search results
+  "vim.incsearch": true, // show matches as you type / search
+  "vim.ignorecase": true, // case-insensitive search...
+  "vim.smartcase": true, // ...unless search has capitals
+  "vim.cursorStylePerMode": true, // different cursor in normal/insert/visual
+  "vim.mouseSelectionGoesIntoVisualMode": true,
+  "vim.useCtrlKeys": true,
+  "vim.handleKeys": {
+    "<C-d>": true,
+    "<C-u>": true,
+    "<C-f>": true,
+    "<C-b>": true,
+    "<C-e>": true,
+    "<C-y>": true,
+    "<C-w>": true,
+    "<C-n>": true,
+    "<C-p>": true
+  },
+
+  // ===== Editor tweaks that feel Vimmy but don't override your existing ones =====
+  "editor.lineNumbers": "relative", // like :set relativenumber
+  "editor.minimap.enabled": false, // no minimap in classic Vim
+  "editor.scrollBeyondLastLine": false // stop at EOF like Vim
+}
